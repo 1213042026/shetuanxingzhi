@@ -1,0 +1,166 @@
+
+<#import  "/news/inc/jxnews.ftl" as jxnew>
+<#import  "/news/inc/content.ftl" as content>
+<#import  "/news/inc/rownews1.ftl" as rownew1>
+<#include   "/news/inc/top.ftl" />
+
+<body>
+	<div class="wrapper sticky_footer">
+    	
+        <#include   "/news/inc/header.ftl" />
+        <!-- CONTENT BEGIN -->
+        <div id="content" class="right_sidebar">
+        	<div class="inner">
+            	<div class="general_content">
+                	
+                 <div class="main_content">
+                    	
+                        <@content.content />
+                        
+                        <@rownew1.rownews1   partid="6" divid="crownews"  /> 
+                        <div class="block_comments">
+                        	<h2>4 条评论</h2>
+                            
+                            <div class="comment">
+                            	<div class="userpic"><a href="#"><img src="/ares/static_news/images/ava_default_1.jpg" alt="" /></a></div>
+                                <div class="content">
+                                	<p class="name"><a href="#">傅园慧</a></p>
+                                    <p class="info"><span class="date">2016-09-30 04:43</span><a href="#" class="control">回复ta</a></p>
+                                    <p class="text">看完这条新闻，我已经无法按捺住体内的洪荒之力了！马上投入到社会主义建设之中！</p>
+                                </div>
+                                <div class="clearboth"></div>
+                                <div class="line_3"></div>
+                            </div>
+                            
+                            <div class="comment">
+                            	<div class="userpic"><a href="#"><img src="/ares/static_news/images/ava_default_1.jpg" alt="" /></a></div>
+                                <div class="content">
+                                	<p class="name"><a href="#">金三胖</a></p>
+                                    <p class="info"><span class="date">2016-09-30 05:01</span><a href="#" class="control">回复ta</a></p>
+                                    <p class="text">厉害了，我的习大大，我们思密达还要学习很久很久，赶超美国佬指日可待，实现高丽民族全球统一的伟大计划。</p>
+                                </div>
+                                <div class="clearboth"></div>
+                                <div class="line_3"></div>
+                                
+                                <div class="comment">
+                                    <div class="userpic"><a href="#"><img src="/ares/static_news/images/ava_default_1.jpg" alt="" /></a></div>
+                                    <div class="content">
+                                        <p class="name"><a href="#">王尼玛</a></p>
+                                        <p class="info"><span class="date">2016-09-30 05:22</span><a href="#" class="control">回复ta</a></p>
+                                        <p class="text">自古真相出二楼-3-</p>
+                                    </div>
+                                    <div class="clearboth"></div>
+                                    <div class="line_3"></div>
+                                </div>
+                            </div>
+                            
+                            <div class="comment">
+                            	<div class="userpic"><a href="#"><img src="/ares/static_news/images/ava_default_1.jpg" alt="" /></a></div>
+                                <div class="content">
+                                	<p class="name"><a href="#">奥巴马</a></p>
+                                    <p class="info"><span class="date">2016-09-30 05:55</span><a href="#" class="control">Reply</a></p>
+                                    <p class="text">二楼那个胖子，你几个意思（愤怒脸）</p>
+                                </div>
+                                <div class="clearboth"></div>
+                                <div class="line_3"></div>
+                            </div>
+                            
+                        </div>
+                        
+                        <div class="separator" style="height:30px;"></div>
+                        
+                        <div class="block_leave_reply">
+                        	<h3>我的回帖</h3>
+                        	<p class="text">您的email不会被公开，标记“<span>*</span>”号的为必填项。</p>
+                            
+                        	<form class="w_validation" action="#" />
+                            	<p>姓名/昵称<span>*</span></p>
+                            	<div class="field"><input type="text" class="req" /></div>
+                                
+                                <p>您的邮箱<span>*</span></p>
+                            	<div class="field"><input type="text" class="req" /></div>
+                                
+                                <p>回帖内容</p>
+                                <div class="textarea"><textarea cols="1" rows="1"></textarea></div>
+                                
+                                <input type="submit" class="general_button" value="回 帖" />
+                            </form>
+                        </div>
+                        
+                    </div>   	
+ 				<!-- 侧栏     -->
+                <div class="sidebar">
+                    
+                      
+                    
+                    <#include "/news/inc/calendar.ftl"/>
+                    <@jxnew.jxnews   partid="9" divid="jxnews"  />   
+                      
+ 
+     				 <div class="block_popular_stuff">
+                        	<h4>热门视频</h4>
+                            
+                            <div class="content">
+                            	<a href="#" class="view_all">更多视频>></a>
+                            	<div class="media"><a href="#" class="general_pic_hover play no_fx" data-rel="prettyPhoto" title="Popular Video"><img src="/ares/static_news/images/pic_pop_video2.jpg" alt="" /></a></div>
+                                <p><a href="blog_post_w_video.html">三分钟教你学会游泳</a> <img src="/ares/static_news/images/icon_video.gif" alt="" /></p>
+                                <p class="date">13小时前</p>
+                            </div>
+                            
+                            <div class="info">
+                            	<ul>
+                                	<li class="comments"><a href="#">115</a></li>
+                                    <li class="views"><a href="#">22048</a></li>
+                                </ul>
+                            </div>
+                            
+                            <div class="clearboth"></div>
+                            
+                            <div class="line_2"></div>
+                        </div>
+                        
+                        <div class="separator" style="height:31px;"></div>
+                        
+                        
+                        
+                        <div class="block_popular_stuff">
+                        	<h4>热门图片</h4>
+                            
+                            <div class="content">
+                            	<a href="#" class="view_all">更多图片>></a>
+                            	<div class="media"><a href="/ares/static_news/images/pic_pop_photo2.jpg" class="general_pic_hover zoom no_fx" data-rel="prettyPhoto" title="爱沙尼亚极光"><img src="/ares/static_news/images/pic_pop_photo2.jpg" alt="" /></a></div>
+                                <p><a href="blog_post_w_slider.html">地球上那些五彩斑斓的色彩天堂</a> <img src="/ares/static_news/images/icon_photo.gif" alt="" /></p>
+                                <p class="date"> 2016-10-01</p>
+                          		<p class="date">这组惊艳的图片向我们展示了地球上五彩斑斓的色彩之美。从中国的紫色梯田到俄罗斯乡间的瑰丽夜空，从爱沙尼亚的蓝绿极光到留尼旺岛火山的赤红烈焰，这些图片是一系列摄影师在过去5年中拍摄的。</p>
+                            </div>
+                            
+                            <div class="info">
+                            	<ul>
+                                	<li class="comments"><a href="#">10247</a></li>
+                                    <li class="views"><a href="#">189</a></li>
+                                </ul>
+                            </div>
+                            
+                            <div class="clearboth"></div>
+                            
+                            <div class="line_2"></div>
+                        </div>
+                        
+                      	<div class="separator" style="height:31px;"></div>
+                        
+                        
+                        
+                    </div>
+                    
+                	<div class="clearboth"></div>
+                </div>
+            </div>
+        </div>
+    	<!-- CONTENT END -->
+        
+         <#include   "/news/inc/footer.ftl" />
+    </div>
+    
+</body>
+
+</html>

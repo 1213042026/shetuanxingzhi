@@ -1,0 +1,25 @@
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.ares.mapper.IDataMapper">
+	<select id="selectnews" resultType="hashmap" >
+		select
+			count(a.id) as newsnum
+			from cms_news a 
+	</select>
+	<select id="selectuser" resultType="hashmap" >
+		select
+			count(a.id) as usernum
+			from cms_user a 
+	</select>
+	<select id="selectdisc" resultType="hashmap" >
+		select
+			count(a.id) as discnum
+			from cms_disc a 
+	</select>
+	<select id="selecthits" resultType="hashmap" >
+		select
+			cms_news_name,cms_news_hits
+			from cms_news order by cms_news_hits desc
+	</select>
+</mapper>

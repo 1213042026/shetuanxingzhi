@@ -1,0 +1,19 @@
+package org.ares.service;
+
+import java.util.HashMap;
+
+import org.ares.entity.User;
+import org.ares.vo.pageModel;
+
+public interface IUserService {
+	public pageModel<HashMap> selectUser(pageModel model)throws Exception;
+	public void deleteUserByid(String id);
+	public pageModel<HashMap> selectBycondition(String keywords,pageModel model)throws Exception;
+	public void deleteManyUser(String []listvals);
+	public void addUser(User user);
+	public HashMap selectByid(String id);
+	public void updateUser(User user);
+	public HashMap selectuserImf(String id);
+	public HashMap selectuserId(String id);
+	public void updateuserDate(User user,String id);
+}

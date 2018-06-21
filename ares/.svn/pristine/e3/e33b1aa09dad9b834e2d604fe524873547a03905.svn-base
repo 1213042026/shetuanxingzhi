@@ -1,0 +1,275 @@
+
+<#import  "/news/inc/jxnews.ftl" as jxnew>
+
+<#include   "/news/inc/top.ftl" />
+
+<body>
+	<div class="wrapper sticky_footer">
+    	
+        <#include   "/news/inc/header.ftl" />
+        <!-- CONTENT BEGIN -->
+        <div id="content" class="right_sidebar">
+        	<div class="inner">
+            	<div class="general_content">
+                	<div class="main_content">
+                        <div class="block_breadcrumbs">
+                        	<div class="text"><p>您所在的位置:</p></div>
+                            
+                            <ul>
+                            	<li><a href="index.html">首页</a></li>
+                                <li>国内新闻</li>
+                            </ul>
+                        </div>
+                        <div class="separator" style="height:20px;"></div>
+                        
+                        <h2>国内新闻</h2>
+                        
+                        
+                        <div class="line_4" style="margin:0px 0px 18px;"></div>
+                        
+                        <article class="block_topic_post_feature">
+                        	<div class="f_pic"><a href="inland_post_1.html" class="general_pic_hover scale"><img src="/ares/static_news/images/pic_home_slider_5.jpg" style="height: 170px;width: 280px;" alt="" /></a></div>
+                            
+                            <div class="content">
+                            	<p class="title"><a href="news_post.html">习近平在学习《胡锦涛文选》报告会上发表讲话</a></p>
+                                
+                                <div class="info">
+                                	<div class="date"><p>2016-9-30</p></div>
+                                    
+                                    <div class="r_part">
+                                    	<div class="category"><p><a href="#">国内新闻</a></p></div>
+                                        <a href="#" class="views">220</a>
+                                    </div>
+                                </div>
+                                    
+                                <p class="text">9月29日，中共中央在北京举行学习《胡锦涛文选》报告会。中共中央总书记、国家主席、中央军委主席习近平在会上发表重要讲话。</p>
+                            </div>
+                            
+                            <div class="clearboth"></div>
+                        </article>
+                        
+                        <div class="line_2" style="margin:21px 0px 21px;"></div>
+                        
+                        <div class="block_topic_news">
+                        	
+                       
+                       
+                        	
+                            
+                            <article class="block_topic_post">
+                            	<p class="title"><a href="news_post.html">上海迪士尼游客:排队2小时 游玩5分钟</a></p>
+                                <div class="f_pic"><a href="news_post.html" class="general_pic_hover scale"><img src="/ares/static_news/images/pic_home_slider_6.jpg"  alt="" /></a></div>
+                                <p class="text">昨天上海迪士尼乐园迎来了自6月开园以后的第一个长假，一反常态的是，客流量反而低于往常周六日。平日排队时间长达一两个小时的游乐项目，只需要几十分钟就能玩。</p>
+                                <div class="info">
+                                	<div class="date"><p>2016-10-02</p></div>
+                                    
+                                    <div class="r_part">
+                                    	<div class="category"><p><a href="#">国内新闻</a></p></div>
+                                        <a href="#" class="views">183</a>
+                                    </div>
+                                </div>
+                            </article>
+                            
+                            
+                            
+                            <article class="block_topic_post">
+                            	<p class="title"><a href="news_post.html">兰新铁路一旅客列车车厢脱线 暂无伤亡</a></p>
+                                <div class="f_pic"><a href="news_post.html" class="general_pic_hover scale"><img src="/ares/static_news/images/pic_home_slider_6.jpg"  alt="" /></a></div>
+                                <p class="text">2日凌晨4时许，兰新铁路上运行的T295次旅客列车在乌鲁木齐铁路局管内甘肃省峡口站出现事故，造成3节车厢脱线。截至目前，没有人员伤亡报告。</p>
+                                <div class="info">
+                                	<div class="date"><p>2016-10-02</p></div>
+                                    
+                                    <div class="r_part">
+                                    	<div class="category"><p><a href="#">国内新闻</a></p></div>
+                                        <a href="#" class="views">183</a>
+                                    </div>
+                                </div>
+                            </article>
+                            
+                            <article class="block_topic_post">
+                            	<p class="title"><a href="news_post.html">哈尔滨一高楼燃气爆炸 致3死 </a></p>
+                                <div class="f_pic"><a href="news_post.html" class="general_pic_hover scale"><img src="/ares/static_news/images/pic_home_slider_6.jpg"  alt="" /></a></div>
+                                <p class="text">今天凌晨4时40分许，在群力景江西路916号一栋高层建筑的十四楼发生爆炸。目前已有3人遇难，另有多人受伤，其中包括1个小孩。</p>
+                                <div class="info">
+                                	<div class="date"><p>2016-10-04</p></div>
+                                    
+                                    <div class="r_part">
+                                    	<div class="category"><p><a href="#">国内新闻</a></p></div>
+                                        <a href="#" class="views">183</a>
+                                    </div>
+                                </div>
+                            </article>
+                            
+                            <article class="block_topic_post">
+                            	<p class="title"><a href="news_post.html">京昆高速绵阳段多车追尾 已致4死23伤</a></p>
+                                <div class="f_pic"><a href="news_post.html" class="general_pic_hover scale"><img src="/ares/static_news/images/pic_home_slider_6.jpg"  alt="" /></a></div>
+                                <p class="text">4日中午，京昆高速(G5)1671公里绵阳龙门至金家林地段发生多起惨烈车祸。记者从绵阳120获悉，事故已致4死23伤。</p>
+                                <div class="info">
+                                	<div class="date"><p>2016-10-04</p></div>
+                                    
+                                    <div class="r_part">
+                                    	<div class="category"><p><a href="#">国内新闻</a></p></div>
+                                        <a href="#" class="views">183</a>
+                                    </div>
+                                </div>
+                            </article>
+                            
+                            <article class="block_topic_post">
+                            	<p class="title"><a href="news_post.html">靠什么拯救东北经济 投资还是国企</a></p>
+                                <div class="f_pic"><a href="news_post.html" class="general_pic_hover scale"><img src="/ares/static_news/images/pic_home_slider_6.jpg"  alt="" /></a></div>
+                                <p class="text">东北三省经济增长持续在全国各省份排名中垫底，如何振兴并拯救东北经济，成为社会关切和决策重点之一。</p>
+                                <div class="info">
+                                	<div class="date"><p>2016-10-04</p></div>
+                                    
+                                    <div class="r_part">
+                                    	<div class="category"><p><a href="#">国内新闻</a></p></div>
+                                        <a href="#" class="views">183</a>
+                                    </div>
+                                </div>
+                            </article>
+                            
+                            <article class="block_topic_post">
+                            	<p class="title"><a href="news_post.html">云南会泽杀人案致19死 嫌疑人已被抓获</a></p>
+                                <div class="f_pic"><a href="news_post.html" class="general_pic_hover scale"><img src="/ares/static_news/images/pic_home_slider_6.jpg"  alt="" /></a></div>
+                                <p class="text">云南会泽多死命案遇难人数再刷新。29日下午，记者从云南省公安厅获悉，目前遇难人数已达19人。多方消息证实，嫌疑人已于今日下午在昆明市区被抓获。</p>
+                                <div class="info">
+                                	<div class="date"><p>2016-09-29</p></div>
+                                    
+                                    <div class="r_part">
+                                    	<div class="category"><p><a href="#">国内新闻</a></p></div>
+                                        <a href="#" class="views">183</a>
+                                    </div>
+                                </div>
+                            </article>
+                            
+
+                            
+                             <article class="block_topic_post">
+                            	<p class="title"><a href="news_post.html">大理永平县发生3.2级地震 震源深度6千米</a></p>
+                                <div class="f_pic"><a href="news_post.html" class="general_pic_hover scale"><img src="/ares/static_news/images/pic_home_slider_6.jpg"  alt="" /></a></div>
+                                <p class="text">中新网10月3日电 据中国地震台网正式测定：10月3日05时19分在云南大理州永平县（北纬25.38度，东经99.46度）发生3.2级地震，震源深度6千米。</p>
+                                <div class="info">
+                                	<div class="date"><p>2016-10-03</p></div>
+                                    
+                                    <div class="r_part">
+                                    	<div class="category"><p><a href="#">国内新闻</a></p></div>
+                                        <a href="#" class="views">183</a>
+                                    </div>
+                                </div>
+                            </article>
+                            
+                            <article class="block_topic_post">
+                            	<p class="title"><a href="news_post.html">湖北一方解石矿发生塌方 1死4失联</a></p>
+                                <div class="f_pic"><a href="news_post.html" class="general_pic_hover scale"><img src="/ares/static_news/images/pic_home_slider_6.jpg"  alt="" /></a></div>
+                                <p class="text">10月2日上午10时30分左右，位于南漳县肖堰镇响水洞村三组的华龙方解石矿员工在检修设备过程中发生山体塌方，导致5人失联、两台挖掘机被垮落块石掩埋。</p>
+                                <div class="info">
+          	                    	<div class="date"><p>2016-10-03</p></div>
+                                    
+                                    <div class="r_part">
+                                    	<div class="category"><p><a href="#">国内新闻</a></p></div>
+                                        <a href="#" class="views">183</a>
+                                    </div>
+                                </div>
+                            </article>
+                            
+                           
+                        </div>
+                        
+                        <div class="line_2" style="margin:25px 0px 25px;"></div>
+                        
+                        <div class="block_pager">
+                        	<a href="#" class="prev">Previous</a>
+                            <a href="#" class="next">Next</a>
+                            
+                            <div class="pages">
+                            	<ul>
+                                	<li class="current"><a href="#">1</a></li>
+                                    <li><a href="#">2</a></li>
+                                    <li><a href="#">3</a></li>
+                                    <li><a href="#">4</a></li>
+                                    <li><a href="#">5</a></li>
+                                    <li><a href="#">6</a></li>
+                                </ul>
+                            </div>
+                            
+                            <div class="clearboth"></div>
+                        </div>
+                        
+                    </div>
+                    	
+ 				<!-- 侧栏     -->
+                <div class="sidebar">
+                    
+                      
+                    
+                    <#include "/news/inc/calendar.ftl"/>
+                    <@jxnew.jxnews   partid="9" divid="jxnews"  />   
+                      
+ 
+     				 <div class="block_popular_stuff">
+                        	<h4>热门视频</h4>
+                            
+                            <div class="content">
+                            	<a href="#" class="view_all">更多视频>></a>
+                            	<div class="media"><a href="#" class="general_pic_hover play no_fx" data-rel="prettyPhoto" title="Popular Video"><img src="/ares/static_news/images/pic_pop_video2.jpg" alt="" /></a></div>
+                                <p><a href="blog_post_w_video.html">三分钟教你学会游泳</a> <img src="/ares/static_news/images/icon_video.gif" alt="" /></p>
+                                <p class="date">13小时前</p>
+                            </div>
+                            
+                            <div class="info">
+                            	<ul>
+                                	<li class="comments"><a href="#">115</a></li>
+                                    <li class="views"><a href="#">22048</a></li>
+                                </ul>
+                            </div>
+                            
+                            <div class="clearboth"></div>
+                            
+                            <div class="line_2"></div>
+                        </div>
+                        
+                        <div class="separator" style="height:31px;"></div>
+                        
+                        
+                        
+                        <div class="block_popular_stuff">
+                        	<h4>热门图片</h4>
+                            
+                            <div class="content">
+                            	<a href="#" class="view_all">更多图片>></a>
+                            	<div class="media"><a href="/ares/static_news/images/pic_pop_photo2.jpg" class="general_pic_hover zoom no_fx" data-rel="prettyPhoto" title="爱沙尼亚极光"><img src="/ares/static_news/images/pic_pop_photo2.jpg" alt="" /></a></div>
+                                <p><a href="blog_post_w_slider.html">地球上那些五彩斑斓的色彩天堂</a> <img src="/ares/static_news/images/icon_photo.gif" alt="" /></p>
+                                <p class="date"> 2016-10-01</p>
+                          		<p class="date">这组惊艳的图片向我们展示了地球上五彩斑斓的色彩之美。从中国的紫色梯田到俄罗斯乡间的瑰丽夜空，从爱沙尼亚的蓝绿极光到留尼旺岛火山的赤红烈焰，这些图片是一系列摄影师在过去5年中拍摄的。</p>
+                            </div>
+                            
+                            <div class="info">
+                            	<ul>
+                                	<li class="comments"><a href="#">10247</a></li>
+                                    <li class="views"><a href="#">189</a></li>
+                                </ul>
+                            </div>
+                            
+                            <div class="clearboth"></div>
+                            
+                            <div class="line_2"></div>
+                        </div>
+                        
+                      	<div class="separator" style="height:31px;"></div>
+                        
+                        
+                        
+                    </div>
+                    
+                	<div class="clearboth"></div>
+                </div>
+            </div>
+        </div>
+    	<!-- CONTENT END -->
+        
+         <#include   "/news/inc/footer.ftl" />
+    </div>
+    
+</body>
+
+</html>

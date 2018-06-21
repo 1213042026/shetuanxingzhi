@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.ares.mapper.IUserMapper">
+	<sql id="user_sql1">
+		cu.id,
+		cu.cms_user_uname,
+		cu.cms_user_nickname,
+		cu.cms_user_email,
+		cu.cms_user_tel,
+		cu.cms_user_qq,
+		cu.cms_user_sex,
+		cu.cms_user_role,
+		cu.cms_user_logtime
+	</sql>
+	<sql id="user_sql2">
+		cu.id,
+		cu.cms_user_uname,
+		cu.cms_user_email,
+		cu.cms_user_nickname,
+		cu.cms_user_tel,
+		cu.cms_user_qq
+	</sql>
+	
+	
+	<!-- 查询所有用户-->
+	<select id="select"  resultType="hashmap">
+		select
+		<include refid="user_sql1"/>
+		from 
+		cms_user cu
+		limit #{0},#{1}
+	</select>
+	
+	<!-- 查询总条数 -->
+	<select id="selectrows"  resultType="hashmap">
+		select count(*) as rows
+		from cms_user 
+	</select>
+
+
+	<!-- 单个用户删除 -->
+	<delete id="delete"  >
+		delete from cms_user
+		WHERE id=#{id}
+	</delete>
+	
+	
+	<!-- 用户模糊查询 -->
+	<select id="selectBycondition"  resultType="hashmap" >
+		select
+		<include refid="user_sql1"/>
+		from 
+		cms_user cu
+		where cu.cms_user_uname like ${keywords}
+		limit #{0},#{1}
+	</select>
+	<!-- 模糊查询条数 -->
+	<select id="selectrowsBycondition"  resultType="hashmap">
+		select count(*) as rows
+		from 
+		cms_user cu
+		where cu.cms_user_uname like ${keywords}
+	</select>
+	
+	<!-- 添加用户 -->
+	<insert id="adduser">
+		insert into cms_user
+		(cms_user_uname,cms_user_pwd,cms_user_email,cms_user_nickname,cms_user_sex,cms_user_tel,cms_user_qq,cms_user_role)
+		values
+		(#{cms_user_uname},#{cms_user_pwd},#{cms_user_email},#{cms_user_nickname},#{cms_user_sex},#{cms_user_tel},#{cms_user_qq},#{cms_user_role})
+	</insert>
+	
+	<!-- 查询单个用户 -->
+	<select id="selectByid" resultType="hashmap">
+		select
+		<include refid="user_sql2"/>
+		from 
+		cms_user cu
+		where cu.id=#{id}
+	</select>
+	
+
+	
+	<!-- 修改用户信息 (有密码) -->
+	<update id="updateWithpwd" parameterType="org.ares.entity.User">
+		update cms_user set
+		cms_user_uname = #{cms_user_uname},
+		cms_user_pwd = #{cms_user_pwd},
+		cms_user_email = #{cms_user_email},
+		cms_user_nickname = #{cms_user_nickname},
+		cms_user_sex = #{cms_user_sex},
+		cms_user_tel = #{cms_user_tel},
+		cms_user_qq = #{cms_user_qq},
+		cms_user_role = #{cms_user_role}
+		where
+		id = #{id}
+	</update>
+	
+	
+	<!-- 用户个人信息 -->
+	<select id="selectuserImf" resultType="hashmap">
+	select 
+		cu.id,
+		cu.cms_user_uname,
+		cu.cms_user_nickname,
+		cu.cms_user_email,
+		cu.cms_user_tel,
+		cu.cms_user_qq,
+		cu.cms_user_sex,
+		cu.cms_user_role,
+		cu.cms_user_logtime
+	from cms_user cu
+	where id=#{id}
+	</select>
+	
+</mapper>

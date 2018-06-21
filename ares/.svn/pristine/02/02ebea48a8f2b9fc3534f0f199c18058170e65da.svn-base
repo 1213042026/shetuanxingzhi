@@ -1,0 +1,59 @@
+package org.ares.service.impl;
+
+import java.util.HashMap;
+import java.util.List;
+
+import org.ares.mapper.ISelectNewsMapper;
+import org.ares.service.ISelectNewsService;
+import org.ares.vo.pageModel;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+@Transactional
+@Service
+public  class SelectNewsServiceImpl implements ISelectNewsService{
+	@Autowired
+	ISelectNewsMapper mapper;
+	
+	public List selectNews(String partid) {
+		
+		List list=mapper.select(partid);
+		return list;
+	}
+	public List selectByPart() {
+		List list=mapper.selectByPart();
+		return list;
+	}
+	
+	public HashMap selectAnew(String newsid) {
+		HashMap map=mapper.selectAnew(newsid);
+		return map;
+	}
+	
+	public HashMap selectPartHeadline(String partid) {
+		HashMap map=mapper.selectPartHeadline(partid);
+		return map;
+	}
+	
+	public HashMap selectPartnewslist(String partid, pageModel pagemodel) {
+		HashMap rows=mapper.selectnewsrows(partid);
+		String rowsnum= rows.get("rows").toString();
+		
+		pagemodel.setRows(rowsnum);
+		int BeginIndex=pagemodel.getBeginIndex();
+		
+		int cpage=pagemodel.getCpage();
+		int totalpage=pagemodel.getTotalpage();
+		int _rows=pagemodel.getRows();
+		
+		List list=mapper.selectPartnewslist(partid, BeginIndex);
+		
+		HashMap newslist=new HashMap();
+		newslist.put("cpage", cpage);
+		newslist.put("totalpage", totalpage);
+		newslist.put("list", list);
+		newslist.put("rows", _rows);
+		return newslist;
+	}
+
+}

@@ -1,0 +1,80 @@
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.ares.mapper.IDataMapper">
+	<select id="selectnews" resultType="hashmap" >
+		select
+			count(a.id) as newsnum
+			from cms_news a 
+	</select>
+	<select id="selectuser" resultType="hashmap" >
+		select
+			count(a.id) as usernum
+			from cms_user a 
+	</select>
+	<select id="selectdisc" resultType="hashmap" >
+		select
+			count(a.id) as discnum
+			from cms_disc a 
+	</select>
+	<select id="selecthits" resultType="hashmap" >
+		select
+			cms_news_name,cms_news_hits
+			from cms_news order by cms_news_hits desc
+	</select>
+	<select id="selectnat" resultType="hashmap" >
+		select
+			count(a.id) as natnum
+			from cms_news a where partid=4
+	</select>
+	<select id="selectint" resultType="hashmap" >
+		select
+			count(a.id) as intnum
+			from cms_news a where partid=5
+	</select>
+	<select id="selecthot" resultType="hashmap" >
+		select
+			count(a.id) as hotnum
+			from cms_news a where partid=6
+	</select>
+	<select id="selectent" resultType="hashmap" >
+		select
+			count(a.id) as entnum
+			from cms_news a where partid=7
+	</select>
+	<select id="selectspo" resultType="hashmap" >
+		select
+			count(a.id) as sponum
+			from cms_news a where partid=9
+	</select>
+	<select id="selectpho" resultType="hashmap" >
+		select
+			count(a.id) as phonum
+			from cms_news a where partid=8
+	</select>
+	<select id="selectrec" resultType="hashmap" >
+		select
+			count(a.id) as recnum
+			from cms_news a where partid=10
+	</select>
+	<select id="selectcul" resultType="hashmap" >
+		select
+			count(a.id) as culnum
+			from cms_news a where partid=11
+	</select>
+	<select id="selectbea" resultType="hashmap" >
+		select
+			count(a.id) as beanum
+			from cms_news a where partid=12
+	</select>
+	<select id="selectedu" resultType="hashmap" >
+		select
+			count(a.id) as edunum
+			from cms_news a where partid=13
+	</select>
+	<select id="selectcom" resultType="hashmap" >
+		select
+			count(a.id) as comnum
+			from cms_news a where partid=14
+	</select>
+</mapper>

@@ -1,0 +1,21 @@
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.ares.mapper.IMergeColumnMapper">
+	<update id="updateNameMergeColumn">
+		update cms_part set cms_part_name=#{name},cms_part_status=#{status},cms_part_addtime=now(),cms_part_uptime=now(),cms_part_keyword=#{keyword},cms_part_desc=#{desc},
+	cms_part_extitle=#{title} where id=#{id}
+	</update>
+	<update id="updateFatherIdMergeColumn">
+		update cms_part set cms_part_fatherid=#{id} where cms_part_fatherid=#{idtwo}
+	</update>
+	<update id="updateTxtFatherIdMergeColumn">
+		update cms_news set partid=#{id}  where partid=#{idtwo}
+	</update>
+	<delete id="deleteTwoMergeColumn">
+		delete from cms_part where id=#{idtwo}
+	</delete>
+	<select id="selectFatherIdList" resultType="hashmap" >
+		select cms_part_fatherid from   cms_part where  id=#{id}
+	</select>
+</mapper>

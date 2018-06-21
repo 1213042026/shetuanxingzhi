@@ -1,0 +1,85 @@
+<#include   "/news/inc/top.ftl" />
+
+		<script type="text/javascript">
+
+		    $(document).ready(function ()
+		    {
+		        var v = $('#reg-form').easyform();
+		
+				$('#demo-form').easyform();
+		
+		        v.is_submit = false;
+		
+		        v.error = function (ef, i, r)
+		        {
+		            console.log("Error事件：" + i.id + "对象的值不符合" + r + "规则");
+		        };
+		
+		        v.success = function (ef)
+		        {
+		            console.log("成功");
+		        };
+		
+		        v.complete = function (ef)
+		        {
+		            console.log("完成");
+		        };
+		
+		        $('#tip-test1').easytip();
+		        $('#tip-test2').easytip();
+		        $('#tip-test3').easytip();
+		        $('#tip-test4').easytip();
+		
+		
+		    });
+			
+			function ajax_demo(p)
+		    {
+		        $("#uid").trigger("easyform-ajax", true);
+		        $("#email").trigger("easyform-ajax", true);
+		    }
+
+		</script>
+
+
+
+<body>
+	<div class="wrapper sticky_footer">
+    	<#include   "/news/inc/header.ftl" />
+        
+        <!-- CONTENT BEGIN -->
+        <div id="content" class="">
+        	<div class="inner">
+            	<div class="general_content">
+                	<div class="main_content">
+                    	<div class="block_breadcrumbs">
+                        	<div class="text"><p>您所在的位置:</p></div>
+                            
+                            <ul>
+                            	<li><a href="index.html">首页</a></li>
+                                <li>个人信息</li>
+                            </ul>
+                        </div>
+                        <div class="separator" style="height:28px;"></div>
+                        
+                        <p class="general_title"><span> 修 改 用 户 个 人 信 息 </span></p>
+                        <div class="separator" style="height:39px;"></div>
+                        <p class="info_text"><input id="general_button_back" type="button" onclick="javascript:history.back(-1);" class="general_button" value="返 回" /></p>
+						<iframe src="/ares/inc/news/user_imf_edit_content" width="100%" height="584px"></iframe>
+						 
+                        <div class="line_3" style="margin:42px 0px 0px;"></div>
+                        
+                    </div>
+                    <!---->
+                	<div class="clearboth"></div>
+                </div>
+            </div>
+    	<!-- CONTENT END -->
+        
+       <#include   "/news/inc/footer.ftl" />
+    </div>
+    
+    
+</body>
+
+</html>

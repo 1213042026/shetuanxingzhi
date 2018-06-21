@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.ares.mapper.ILoginMapper">
+	 <select id="selectloginnews" resultType="hashmap">
+		select
+		r.id,
+		r.cms_user_uname,r.cms_user_email,r.cms_user_nickname,
+		r.cms_user_sex,r.cms_user_tel,r.cms_user_qq
+		from cms_user r
+		where r.cms_user_uname=#{username} 
+		and r.cms_user_pwd=#{password}
+	</select>
+	
+	<select id="selectlogincms" resultType="hashmap">
+		select 
+		r.id,r.cms_user_uname,r.cms_user_email,r.cms_user_nickname,
+		r.cms_user_sex,r.cms_user_tel,r.cms_user_qq
+		from cms_user r
+		where r.cms_user_uname=#{h_username} 
+		and r.cms_user_pwd=#{h_password}
+		and r.cms_user_role='管理员'
+	</select>
+	
+	<insert id="insertrecord" parameterType="org.ares.entity.User">
+		insert into cms_record (cms_record_uname,cms_record_logtime) values(#{h_username},now())
+
+	</insert>		
+
+</mapper>

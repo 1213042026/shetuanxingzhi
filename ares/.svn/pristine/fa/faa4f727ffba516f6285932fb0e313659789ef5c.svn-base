@@ -1,0 +1,20 @@
+package org.ares.mapper;
+
+import java.util.HashMap;
+import java.util.List;
+
+import org.apache.ibatis.annotations.Param;
+import org.springframework.stereotype.Repository;
+
+@Repository
+public interface ISelectNewsMapper {
+	public List select(String partid);
+	public List selectByPart();
+	public HashMap selectAnew(String newsid);
+	public HashMap selectPartHeadline(String partid);
+	public List selectPartnewslist( @Param("partid")String partid,@Param("BeginIndex")int BeginIndex);
+	public HashMap selectnewsrows(String partid);
+	public void insertComments(@Param("newsid")String newsid,@Param("comments")String comments,@Param("nickname")String nickname);
+	public List selectComments( @Param("newsid")String newsid,@Param("BeginIndex")int BeginIndex);
+	public HashMap selectCommentsRows(String newsid);
+}

@@ -1,0 +1,53 @@
+<!--鏍规嵁鍒嗙被鏂伴椈妯″潡  -->
+<#macro  news  partname  partid  divid >
+<script  id="thetmp" type="text/x-jsrender">
+  {{for  #data }}
+		<div class="block_home_post">
+			<div class="pic">
+				<a href="/ares/view/news/newscontent?id={{:id}}" class="w_hover">
+					<img src="{{:cms_news_imgurl}}" alt="" style="height: 50px;width: 80px;"/>
+					<span></span>
+				</a>
+			</div>
+	                
+			<div class="text">
+				<p class="title"><a href="/ares/view/news/newscontent?id={{:id}}">{{:cms_news_name}}</a></p>
+				<div class="date"><p>{{:cms_news_ptime}}</p></div>
+				<div class="date" style="margin-left:10px"><p>{{:cms_part_name}}</p></div>
+	            <div class="icons">
+	            	<ul>
+	                	<li><a  class="views">{{:cms_news_hits}}</a></li>
+	                </ul>
+	            </div>
+			</div>
+		</div>
+		<div class="line_3"></div>
+	
+   {{/for}}	
+</script>
+<script type="text/javascript">
+	$(document).ready(function(){
+		$.ajax({
+			 url:"/ares/report/selectnews",
+			 type:"GET",
+			 data:{"partid":${partid}},
+			 dataType:"json",
+			 success:function(data){
+				var html = $("#thetmp").render(data); 
+				$("#${divid}").append(html);	
+			 }
+		});
+	});
+</script>
+	<h3 style="font-size:18px;">${partname}</h3>
+    <div class="line_4" style="margin:-4px 0px 18px;"></div>
+	<div class="block_topic_news" id="${divid}">
+	
+	</div>
+	 <div class="" style="margin:20px 0px 24px;"></div>
+                        
+    <a href="/ares/view/news/partnews?id=${partid}" class="" style="color: #f24024;">更多新闻>></a>
+    <div class="clearboth"></div>
+    
+    <div class="line_2" style="margin:24px 0px 35px;"></div>		
+</#macro>	

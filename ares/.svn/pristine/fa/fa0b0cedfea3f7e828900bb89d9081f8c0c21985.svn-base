@@ -1,0 +1,8 @@
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.ares.mapper.IColumnMapper">
+	<insert id="insertColumn" parameterType="org.ares.entity.Column" >
+		insert into cms_part (cms_part_name,cms_part_fatherid,cms_part_status,cms_part_addtime,cms_part_uptime,cms_part_keyword,cms_part_desc,cms_part_extitle) values(#{name},#{parentid},#{status},now(),now(),#{keyword},#{desc},#{title})
+	</insert>
+</mapper>

@@ -1,0 +1,12 @@
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.ares.mapper.IDeleteColumnMapper">
+	<delete id="deleteColumn">
+		delete from cms_part where id=#{id}
+	</delete>
+	
+	<select id="sonList" resultType="hashmap">
+		select id from cms_part where cms_part_fatherid=#{id}
+	</select>
+</mapper>

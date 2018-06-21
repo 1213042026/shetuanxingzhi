@@ -1,0 +1,228 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+<link href="/ares/static_hou/css/style.css" rel="stylesheet" type="text/css" />
+<script language="JavaScript" src="/ares/static_hou/js/jquery.js"></script>
+<script  src="/ares/static_hou/js/jsrender.min.js"></script>
+
+<script id="toptennewss" type="text/x-jsrender">
+{{for #data}}
+	<li><a href="/ares/txt/selectxq?id={{:id}}">{{:cms_news_name}}</a></li>
+{{/for}}
+</script>
+
+<script id="toptenwaitt" type="text/x-jsrender">
+{{for #data}}
+	<li><a href="/ares/txt/selectxq?id={{:id}}">{{:cms_news_name}}</a></li>
+{{/for}}
+</script>
+
+<script id="top88" type="text/x-jsrender">
+{{for #data}}
+	<li><a href="/ares/txt/selectxq?id={{:id}}">{{:cms_news_name}}</a><b>{{:cms_news_hits}}</b></li>
+{{/for}}
+</script>
+
+
+<script type="text/javascript"> 
+	$(document).ready(function(){
+		$.ajax({
+			url:"/ares/work/Toptennews",
+			dataType:"json",
+			success:function(data){
+			
+				var html=$("#toptennewss").render(data);
+				$("#toptennews").append(html);
+			}
+		});
+	});
+</script>
+<script type="text/javascript"> 
+	$(document).ready(function(){
+		$.ajax({
+			url:"/ares/work/Toptenwait",
+			dataType:"json",
+			success:function(data){
+				var html=$("#toptenwaitt").render(data);
+				$("#toptenwait").append(html);
+			}
+		});
+	});
+</script>
+<script type="text/javascript"> 
+	$(document).ready(function(){
+	
+		$.ajax({
+			url:"/ares/work/Top8",
+			dataType:"json",
+			success:function(data){
+				var html=$("#top88").render(data);
+				$("#top8").append(html);
+			}
+		});
+	});
+</script>
+		<script type="text/javascript"> 
+			$(document).ready(function(){
+				$.ajax({
+					url:"/ares/data/user",
+					dataType:"json",
+					success:function(data){
+						$("#user").html(data.usernum)			
+					}
+				});
+			});
+		</script>
+		<script type="text/javascript"> 
+			$(document).ready(function(){
+				$.ajax({
+					url:"/ares/data/news",
+					dataType:"json",
+					success:function(data){
+						$("#news").html(data.newsnum)			
+					}
+				});
+			});
+		</script>
+		<script type="text/javascript"> 
+			$(document).ready(function(){
+				$.ajax({
+					url:"/ares/data/disc",
+					dataType:"json",
+					success:function(data){
+						$("#disc").html(data.discnum)			
+					}
+				});
+			});
+		</script>
+		<script type="text/javascript"> 
+			$(document).ready(function(){
+				$.ajax({
+					url:"/ares/work/log",
+					dataType:"json",
+					success:function(data){
+						$("#log").html(data.logtime)			
+					}
+				});
+			});
+		</script>
+		<script type="text/javascript"> 
+		$(document).ready(function(){
+			$.ajax({
+				url:"/ares/message/selectnoreadrows",
+				dataType:"json",
+				success:function(data){
+					$("#noread").html(data.messagerows)
+				}
+			});
+		})
+		</script>
+</head>
+
+
+<body>
+
+	<div class="place">
+    <span>位置：</span>
+    <ul class="placeul">
+    <li><a href="#">首页</a></li>
+    </ul>
+    </div>
+    
+   	<div class="mainbox">
+    
+    <div class="mainleft">
+    
+    <div class="leftinfo">
+    <div class="listtitle">欢迎页</div>
+        
+    <div class="maintj">  
+	    <div class="welinfo">
+		    <b><a href="/ares/user/selectuserImf?id=${loginUser['id']}" target="rightFrame">${loginUser['cms_user_nickname']}</a> 早上好，欢迎使用Ares信息管理系统</b>
+		    <a href="/ares/user/selectByid?id=${loginUser['id']}" target="rightFrame">帐号设置</a>
+		    </div>
+		    
+		    <div class="welinfo">
+		    <div style="float:left;margin-left:300px;">您上次登录的时间：</div> <div id="log" style="float:left;"></div>
+		    <div style="float:left;margin-left:300px;">您有：<b id="noread" style="display: inline-block;width: 20px; height: 18px;text-align: center;font-weight: normal;color: red;font-size: 14px; margin-right: 13px;margin-top: 7px;line-height: 18px;"></b>
+		    	条消息尚未阅读<a href="/ares/message/selectnoread" target="rightFrame">点击查看</a>
+		    </div> 
+		</div>
+    </div>
+    
+    </div>
+    <!--leftinfo end-->
+    
+    
+    <div class="leftinfos">
+    
+   
+    <div class="infoleft" style="width: 49%;">
+    
+    <div class="listtitle"><a href="/ares/work/selectWait" class="more1">更多</a>待审文章</div>    
+	<ul class="newlist"  id="toptenwait">
+    </ul> 
+    </ul>   
+    
+    </div>
+    
+    
+    <div class="inforight" style="width: 49%;">
+    <div class="listtitle">排行榜</div>
+    
+  	<ul class="newlist"  id="top8">
+    </ul> 
+    </ul>
+    
+    </div>
+    
+    
+    </div>
+    
+    
+    </div>
+    <!--mainleft end-->
+    
+    
+    <div class="mainright">
+    
+    
+    <div class="dflist">
+    <div class="listtitle">最新信息</div>    
+	<ul class="newlist"  id="toptennews">
+    </ul>        
+    </div>
+    
+    
+    
+
+
+    <div class="dflist1">
+    <div class="listtitle"><a href="/ares/data/select" target="rightFrame" class="more1">更多</a>信息统计</div>    
+    <ul class="newlist">
+    <li><i>会员总量：</i><div id="user"></div></li>
+    <li><i>文章总量：</i><div id="news"></div></li>
+    <li><i>评论总量：</i><div id="disc"></div></li>    
+    </ul>        
+    </div>
+    
+
+
+    
+    
+    </div>
+    <!--mainright end-->
+    
+    
+    </div>
+
+
+   	
+   	
+   	
+   	
+</body>
+
+</html>

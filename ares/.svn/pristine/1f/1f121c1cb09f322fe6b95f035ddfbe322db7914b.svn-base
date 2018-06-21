@@ -1,0 +1,106 @@
+<#import  "/news/inc/newslist.ftl" as newslist>
+<#import  "/news/inc/topnews.ftl" as topnew>
+<#import  "/news/inc/rownews.ftl" as rownew>
+<#import  "/news/inc/jxnews.ftl" as jxnew>
+
+<#include   "/news/inc/top.ftl" />
+
+<body>
+	<div class="wrapper sticky_footer">
+    	
+        <#include   "/news/inc/header.ftl" />
+        <!-- CONTENT BEGIN -->
+        <div id="content" class="right_sidebar">
+        	<div class="inner">
+            	<div class="general_content">
+                	<div class="main_content">
+                        <!--头条焦点图 -->
+                        <@topnew.topnews partid="15"  divid="topnew"/>
+                        <!--分栏目最新新闻 -->
+                    	<@newslist.news  partname="国内新闻" partid="4"  divid="newslist"/>
+                     	<!--分栏目最新新闻 -->
+                    	<@newslist.news  partname="国际新闻" partid="5"  divid="newslist1"/>
+                     	<!--分栏目最新新闻 -->
+                    	<@newslist.news  partname="娱乐新闻"  partid="7"  divid="newslist3"/>
+                     	<!--分栏目最新新闻 -->
+                    	<@newslist.news   partname="体育新闻" partid="9"  divid="newslist4"/>
+                        <!--底部社会热点新闻栏 -->
+                       	<@rownew.footernews   partid="6" divid="footernew"  /> 
+                    	
+ 				<!-- 侧栏     -->
+                <div class="sidebar">
+                    
+                      
+                    
+                    <#include "/news/inc/calendar.ftl"/>
+                    <!--侧边热门话题 -->
+                    <@jxnew.jxnews   partid="9" divid="jxnews"  />   
+                      
+ 
+     				 <div class="block_popular_stuff">
+                        	<h4>热门视频</h4>
+                            
+                            <div class="content">
+                            	<a href="#" class="view_all">更多视频>></a>
+                            	<div class="media"><a href="#" class="general_pic_hover play no_fx" data-rel="prettyPhoto" title="Popular Video"><img src="/ares/static_news/images/pic_pop_video2.jpg" alt="" /></a></div>
+                                <p><a href="blog_post_w_video.html">三分钟教你学会游泳</a> <img src="/ares/static_news/images/icon_video.gif" alt="" /></p>
+                                <p class="date">13小时前</p>
+                            </div>
+                            
+                            <div class="info">
+                            	<ul>
+                                	<li class="comments"><a href="#">115</a></li>
+                                    <li class="views"><a href="#">22048</a></li>
+                                </ul>
+                            </div>
+                            
+                            <div class="clearboth"></div>
+                            
+                            <div class="line_2"></div>
+                        </div>
+                        
+                        <div class="separator" style="height:31px;"></div>
+                        
+                        
+                        
+                        <div class="block_popular_stuff">
+                        	<h4>热门图片</h4>
+                            
+                            <div class="content">
+                            	<a href="#" class="view_all">更多图片>></a>
+                            	<div class="media"><a href="/ares/static_news/images/pic_pop_photo2.jpg" class="general_pic_hover zoom no_fx" data-rel="prettyPhoto" title="爱沙尼亚极光"><img src="/ares/static_news/images/pic_pop_photo2.jpg" alt="" /></a></div>
+                                <p><a href="blog_post_w_slider.html">地球上那些五彩斑斓的色彩天堂</a> <img src="/ares/static_news/images/icon_photo.gif" alt="" /></p>
+                                <p class="date"> 2016-10-01</p>
+                          		<p class="date">这组惊艳的图片向我们展示了地球上五彩斑斓的色彩之美。从中国的紫色梯田到俄罗斯乡间的瑰丽夜空，从爱沙尼亚的蓝绿极光到留尼旺岛火山的赤红烈焰，这些图片是一系列摄影师在过去5年中拍摄的。</p>
+                            </div>
+                            
+                            <div class="info">
+                            	<ul>
+                                	<li class="comments"><a href="#">10247</a></li>
+                                    <li class="views"><a href="#">189</a></li>
+                                </ul>
+                            </div>
+                            
+                            <div class="clearboth"></div>
+                            
+                            <div class="line_2"></div>
+                        </div>
+                        
+                      	<div class="separator" style="height:31px;"></div>
+                        
+                        
+                        
+                    </div>
+                    
+                	<div class="clearboth"></div>
+                </div>
+            </div>
+        </div>
+    	<!-- CONTENT END -->
+        
+         <#include   "/news/inc/footer.ftl" />
+    </div>
+    
+</body>
+
+</html>

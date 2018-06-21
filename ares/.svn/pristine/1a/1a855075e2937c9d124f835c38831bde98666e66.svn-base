@@ -1,0 +1,5 @@
+driver=com.mysql.jdbc.Driver
+url=jdbc:mysql://192.168.8.3:3306/ares?useUnicode=true&characterEncoding=utf8
+username=lanqiao
+password=lanqiao
+

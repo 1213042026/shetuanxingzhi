@@ -1,0 +1,31 @@
+	<#macro page  list> 
+	<div class="left" >
+		<div class="lefttop"><p style="width: 200px">${.now}</p></div>
+    <#if list>
+    <dl class="leftmenu" style="border-right:1px solid #ffcc66;height:510px;">
+    <dd  id="menu_dd" >
+    <div class="title">
+    <span><img src="/ares/static_hou/img/leftico01.png" /></span>栏目
+    </div>
+    	<ul class="menuson">
+	<#list list as menu>	
+        <li>
+            <div class="header">
+            <cite></cite>
+	            <a href="#" >${menu.title}</a>
+            <i></i>
+            </div>
+        <#list menu.children as childmenu>    
+            <ul class="sub-menus">
+            <li><a href="/ares/txt/selectBypartname?partname=${childmenu.title}" target="rightFrame">${childmenu.title}</a></li>
+            </ul>
+        </#list>   
+        </li>
+	</#list>
+        </ul>    
+    </dd>
+ 
+    </dl>
+    </#if>  
+</div>
+  </#macro>

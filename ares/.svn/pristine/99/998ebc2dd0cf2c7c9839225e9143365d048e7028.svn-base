@@ -1,0 +1,16 @@
+package org.ares.mapper;
+
+
+import java.util.HashMap;
+import java.util.List;
+
+import org.ares.entity.Column;
+import org.springframework.stereotype.Repository;
+
+@Repository
+public interface IDataMapper {
+	public HashMap selectuser(); 
+	public HashMap selectnews(); 
+	public HashMap selectdisc(); 
+	public List selecthits();
+}

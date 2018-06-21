@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.ares.mapper.ISelectNewsMapper">
+	<!--根据栏目查询最新的几条新闻  -->
+	 <select id="select" resultType="hashmap">
+		SELECT 
+		cn.id,cn.cms_news_name,cn.cms_news_imgurl,
+		DATE_FORMAT(cn.cms_news_ptime,'%Y-%m-%d %H:%i') as cms_news_ptime,
+		cn.cms_news_content,cn.cms_news_hits,cn.cms_news_disc,
+		cp.cms_part_name,cu.cms_user_nickname
+		FROM cms_news cn  
+		LEFT JOIN cms_part cp on cn.partid=cp.id 
+		LEFT JOIN cms_user cu on cn.userid=cu.id  
+		WHERE cn.cms_news_status='1' and cn.partid=#{partid}
+		ORDER BY cn.cms_news_ptime DESC
+		LIMIT 4
+	</select>
+	<!--查询单条新闻  -->
+	 <select id="selectAnew" resultType="hashmap">
+		SELECT 
+		cn.id,cn.cms_news_name,cn.cms_news_imgurl,
+		DATE_FORMAT(cn.cms_news_ptime,'%Y-%m-%d %H:%i') as cms_news_ptime,
+		cn.cms_news_content,cn.cms_news_hits,cn.cms_news_disc,
+		cp.cms_part_name,cu.cms_user_nickname
+		FROM cms_news cn  
+		LEFT JOIN cms_part cp on cn.partid=cp.id 
+		LEFT JOIN cms_user cu on cn.userid=cu.id  
+		WHERE cn.cms_news_status='1' and cn.id=#{newsid}
+	</select>
+	<!--更新点击量 -->
+	<update id="updateHits">
+		update cms_news cn
+	  	set cn.cms_news_hits=#{hit}
+	 	where cn.id=#{newsid}
+	</update>
+	<!--查询栏目-->
+	 <select id="selectByPart" resultType="hashmap">
+	 	SELECT cp.id,cp.cms_part_name 
+		from cms_part cp 
+		WHERE cp.cms_part_fatherid='1' AND cp.cms_part_status='1'
+	 </select>
+	 <!--查询分栏目中点击量最高的新闻  -->	
+	 <select id="selectPartHeadline" resultType="hashmap">
+	 	SELECT 
+		cn.id,cn.cms_news_name,cn.cms_news_imgurl,
+		DATE_FORMAT(cn.cms_news_ptime,'%Y-%m-%d %H:%i') as cms_news_ptime,
+		cn.cms_news_content,cn.cms_news_hits,cn.cms_news_disc,
+		cp.cms_part_name,cu.cms_user_nickname
+		FROM cms_news cn  
+		LEFT JOIN cms_part cp on cn.partid=cp.id 
+		LEFT JOIN cms_user cu on cn.userid=cu.id  
+		WHERE cn.cms_news_status='1' and cn.partid=#{partid}
+		ORDER BY cn.cms_news_hits DESC
+		LIMIT 1
+	 </select>
+	 <!--分页查询分栏目新闻  -->
+	 <select id="selectPartnewslist" resultType="hashmap">
+	 	SELECT 
+		cn.id,cn.cms_news_name,cn.cms_news_imgurl,
+		DATE_FORMAT(cn.cms_news_ptime,'%Y-%m-%d %H:%i') as cms_news_ptime,
+		cn.cms_news_content,cn.cms_news_hits,cn.cms_news_disc,
+		cp.cms_part_name,cu.cms_user_nickname
+		FROM cms_news cn  
+		LEFT JOIN cms_part cp on cn.partid=cp.id 
+		LEFT JOIN cms_user cu on cn.userid=cu.id  
+		WHERE cn.cms_news_status='1' and cn.partid=#{partid}
+		ORDER BY cn.cms_news_ptime DESC
+		LIMIT #{BeginIndex},8
+	 </select>
+	 <!--查询分栏目新闻的总条数  -->
+	 <select id="selectnewsrows" resultType="hashmap">
+	 	SELECT COUNT(id) AS rows FROM cms_news WHERE partid=#{partid} AND cms_news_status='1'
+	 </select>
+	 <!--插入新闻评论  -->
+	 <insert id="insertComments">
+		insert into cms_disc (cms_disc_content,cms_disc_time,newsid,usernickname)
+		values(#{comments},now(),#{newsid},#{nickname})
+	 </insert>
+	 <!--查询新闻评论  -->
+	 <select id="selectComments" resultType="hashmap">
+	 	SELECT cd.id,cd.cms_disc_content,cd.usernickname,
+		DATE_FORMAT(cd.cms_disc_time,'%Y-%m-%d %H:%i:%d') AS cms_disc_time 
+		FROM cms_disc cd WHERE cd.newsid=#{newsid}
+		ORDER BY cd.cms_disc_time
+		LIMIT #{BeginIndex},8 
+	 </select>
+	 <!--查询新闻评论条数  -->
+	 <select id="selectCommentsRows" resultType="hashmap">
+	 	SELECT COUNT(id) AS comments_rows FROM cms_disc WHERE newsid=#{newsid}
+	 </select>
+	 <!-- 模糊查询条数 -->
+	<select id="selectMohu"  resultType="hashmap">
+		SELECT 
+		cn.id,cn.cms_news_name,cn.cms_news_imgurl,
+		DATE_FORMAT(cn.cms_news_ptime,'%Y-%m-%d %H:%i') as cms_news_ptime,
+		cn.cms_news_content,cn.cms_news_hits,cn.cms_news_disc,
+		cp.cms_part_name,cu.cms_user_nickname
+		FROM cms_news cn  
+		LEFT JOIN cms_part cp on cn.partid=cp.id 
+		LEFT JOIN cms_user cu on cn.userid=cu.id
+		where cn.cms_news_name like CONCAT(CONCAT('%', #{keywords}), '%')
+		ORDER BY cn.cms_news_ptime DESC
+	</select>
+</mapper>

@@ -1,0 +1,57 @@
+package org.ares.controller;
+
+import java.util.HashMap;
+
+import org.ares.service.IMessageService;
+import org.ares.vo.pageModel;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
+
+@Controller
+@RequestMapping("/message")
+public class MessageController {
+	@Autowired
+	IMessageService messageServiceImpl;
+	
+	
+	
+	
+	@RequestMapping("/selectMessagerows")
+	@ResponseBody
+	public HashMap selectMessagerows(){
+		HashMap map=null;
+		map=messageServiceImpl.selectMessagerows();
+		return map;
+		
+	}
+	@RequestMapping("/selectall")
+	public String selectall(Model model,pageModel pagemodel){
+		pageModel<HashMap> pageModel2=null;
+		try {
+			pageModel2=messageServiceImpl.selectmes(pagemodel);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		model.addAttribute("pagemodel", pageModel2);
+		return "/cms/message";
+	}
+	
+	@RequestMapping("/deletemesByid")
+	public String deleteTxtByid(String id){
+		messageServiceImpl.deleteMesByid(id);
+		return "redirect:/message/selectall";
+	}
+	
+	@ResponseBody
+	@RequestMapping("/deleteAll")
+	public String deleteAll(String[]  listmsg ){
+		
+		System.out.println("coming in");
+		messageServiceImpl.deleteAll(listmsg);
+		return "redirect:/message/selectall";
+	}
+	
+}

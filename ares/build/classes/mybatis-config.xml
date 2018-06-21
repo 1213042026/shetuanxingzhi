@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN" "http://mybatis.org/dtd/mybatis-3-config.dtd">
+
+<configuration>
+	<mappers>
+		<mapper resource="org/ares/mapping/TxtMapping.xml"/>
+		<mapper resource="org/ares/mapping/LoginMapping.xml"/>
+		<mapper resource="org/ares/mapping/IRegisterMapping.xml"/>
+		<mapper resource="org/ares/mapping/EmpMapping.xml" />
+		<mapper resource="org/ares/mapping/UserMapping.xml" />
+	  	<mapper resource="org/ares/mapping/ColumnMapping.xml" /> 
+	  	<mapper resource="org/ares/mapping/DeleteColumnMapping.xml" />
+	  	<mapper resource="org/ares/mapping/SelectNewsMapping.xml" /> 
+	  	<mapper resource="org/ares/mapping/EditorColumnMapping.xml" /> 
+	  	<mapper resource="org/ares/mapping/MergeColumnMapping.xml" />	
+	  	<mapper resource="org/ares/mapping/MessageMapping.xml" />  	
+	  	<mapper resource="org/ares/mapping/DataMapping.xml" />  
+	</mappers>
+</configuration>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

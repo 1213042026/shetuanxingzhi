@@ -1,0 +1,28 @@
+package org.ares.controller;
+
+import java.util.List;
+
+import org.ares.service.ISelectNewsService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
+
+@Controller
+@RequestMapping("/report")
+public class SelectNewsController {
+	@Autowired
+	ISelectNewsService service;
+	@RequestMapping("/selectnews")
+	@ResponseBody
+	public List selectNews(String partid){
+		List list=service.selectNews(partid);
+		return list;
+	}
+	@RequestMapping("/part")
+	@ResponseBody
+	public List selectNewsByPart(){
+		List list=service.selectByPart();
+		return list;
+	}
+}

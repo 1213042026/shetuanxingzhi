@@ -1,0 +1,219 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.ares.mapper.ITxtMapper">
+
+	<sql id="txt_sql1">
+		cn.id,
+		cn.cms_news_name ,
+		cu.cms_user_uname,
+		cs.cms_status_word,
+		cn.cms_news_ptime,
+		cp.cms_part_name
+	</sql>
+	<sql id="txt_sql2">
+		cn.id,
+		cn.cms_news_name ,
+		cu.cms_user_uname,
+		cn.cms_news_hits,
+		cn.cms_news_ptime,
+		cn.cms_news_imgurl,
+		cn.cms_news_content
+	</sql>
+	
+	<!-- 文章查询 -->
+	<select id="select"  resultType="hashmap">
+		select
+		<include refid="txt_sql1"/>
+		from cms_news cn 
+		left join cms_user  cu
+		on cn.userid=cu.id
+		left join cms_part cp
+		on cn.partid=cp.id
+		left join cms_status cs
+		on cn.cms_news_status=cs.cms_status_id
+		order by cms_news_ptime desc
+		limit #{0},#{1}
+	</select>
+	
+	<!-- 查询总条数 -->
+	<select id="selectrows"  resultType="hashmap">
+		select count(*) as rows
+		from cms_news 
+		
+	</select>
+	
+	<!-- 模糊查询条数 -->
+	<select id="selectrowsBycondition"  resultType="hashmap">
+		select count(*) as rows
+		from cms_news cn
+		where cn.cms_news_name like ${keywords}
+	</select>
+	
+	<!-- 栏目查询条数 -->
+	<select id="selectrowsBypart" resultType="hashmap">
+		select count(*) as rows
+		from cms_news cn 
+		left join cms_part cp
+		on cp.cms_part_name=#{partname}
+		where cn.partid=cp.id
+	</select>	
+	
+	
+	<!-- 文章详情查询 -->
+	<select id="selectxq"  resultType="hashmap">
+		select
+		<include refid="txt_sql2"/>
+		from cms_news cn 
+		left join cms_user  cu
+		on cn.userid=cu.id 
+		where cn.id=#{id}
+	</select>
+	
+	
+	<!-- 文章模糊查询 -->
+	<select id="selectBycondition"  resultType="hashmap" >
+		select
+		cn.id,
+		cn.cms_news_name ,
+		cu.cms_user_uname,
+		cn.cms_news_status,
+		cn.cms_news_ptime
+		from cms_news cn 
+		left join cms_user  cu
+		on cn.userid=cu.id
+		where cn.cms_news_name like ${keywords}
+		limit #{1},#{2}
+	</select>
+	
+	
+	
+	
+	
+	<!-- 添加文章 -->
+	<insert id="inserttxt"  parameterType="org.ares.entity.Txt">
+		insert into cms_news
+		(cms_news_name,cms_news_content,cms_news_ptime,cms_news_type,cms_news_status,cms_news_imgurl,partid)
+		values
+		(#{cms_news_name},#{cms_news_content},now(),#{cms_news_type},0,#{cms_news_imgurl},#{paritid})
+	</insert>
+	
+	<select id="selectTxt_part" resultType="hashmap">
+		select cp.id from  cms_part cp
+		where  cp.cms_part_name=#{cms_part_name}
+	</select>
+	
+	<!-- 查询栏目 -->
+	<select id="selectTxt_part_name" resultType="hashmap">
+		select cp.cms_part_name from cms_part cp
+	</select>
+	
+	
+	
+	<!-- 文章单个删除 -->
+	<delete id="delete"  >
+		delete from cms_news 
+		WHERE id=#{id}
+	</delete>
+
+	<!-- 查询审核页面 -->
+	<select id="auditing" resultType="hashmap">
+		select
+		cn.id,
+		cn.cms_news_name,
+		cu.cms_user_uname,
+		cn.cms_news_content,
+		cp.cms_part_name,
+		cn.cms_news_ptime,
+		cn.cms_news_imgurl,
+		cs.cms_status_word	
+		from cms_news cn 
+		left join cms_user  cu
+		on cn.userid=cu.id
+		left join cms_part cp
+		on cn.partid=cp.id
+		left join cms_status cs
+		on cn.cms_news_status=cs.cms_status_id
+		where cn.id=#{id}
+	</select>
+	
+	<!-- 审核过程A 通过-->
+	<update id="auditA">
+		update cms_news cn
+	  	set cn.cms_news_status=1
+	 	where cn.id=#{id}
+	</update>
+	<!-- 审核过程B 驳回-->
+	<update id="auditB">
+		update cms_news cn
+	  	set cn.cms_news_status=2
+	 	where cn.id=#{id}
+	</update>
+	
+	
+	
+	<!-- 文章按栏目查询 -->
+	<select id="selectBypart" resultType="hashmap">
+		select
+		<include refid="txt_sql1"/>
+		from cms_news cn 
+		left join cms_user  cu
+		on cn.userid=cu.id
+		left join cms_part cp
+		on cp.cms_part_name=#{partname}
+		left join cms_status cs
+		on cn.cms_news_status=cs.cms_status_id
+		where cn.partid=cp.id
+	</select>
+	
+	
+	
+	<!-- 最新消息前十条查询 -->
+	<select id="selectToptennews" resultType="hashmap">
+		select cn.id,cn.cms_news_name
+		from cms_news cn
+		order by cn.cms_news_ptime desc
+		limit 9
+	</select>
+	<!-- 待审文章前9查询 -->
+	<select id="selectToptenwait" resultType="hashmap">
+		select cn.id,cn.cms_news_name
+		from cms_news cn
+		where cn.cms_news_status='0'
+		limit 9
+	</select>
+	<!-- 排行榜前9查询 -->
+	<select id="selectTop8" resultType="hashmap">
+	select cn.id,cn.cms_news_name,cn.cms_news_hits
+	from cms_news cn
+	ORDER BY cn.cms_news_hits DESC
+	limit 9
+	</select>
+	
+	<!-- 待审文章全部查询 -->
+	<select id="selectwait" resultType="hashmap">
+		select
+		<include refid="txt_sql1"/>
+		from cms_news cn 
+		left join cms_user  cu
+		on cn.userid=cu.id
+		left join cms_part cp
+		on cn.partid=cp.id
+		left join cms_status cs
+		on cn.cms_news_status=cs.cms_status_id
+		where cn.cms_news_status='0'
+		limit #{0},#{1}
+	</select>	
+	<!-- 待审文章总条数 -->
+	<select id="selectwaitrows" resultType="hashmap">
+		select count(*) as rows
+		from cms_news 
+		where cms_news_status='0'
+	</select>
+	<select id="selectlog" resultType="hashmap">
+		select DATE_FORMAT(cms_record_logtime,'%Y-%m-%d  %H:%i:%S') as logtime
+		from cms_record order by id desc  limit 1,1
+			
+	</select>
+</mapper>

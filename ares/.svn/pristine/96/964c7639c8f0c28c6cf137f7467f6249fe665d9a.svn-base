@@ -1,0 +1,114 @@
+package org.ares.controller;
+
+import java.util.HashMap;
+import java.util.List;
+
+import javax.servlet.http.HttpSession;
+
+import org.ares.service.ISelectNewsService;
+import org.ares.vo.pageModel;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
+
+@Controller
+@RequestMapping("/report")
+public class SelectNewsController {
+	@Autowired
+	ISelectNewsService service;
+	/**
+	 * 根据栏目查询最新几条新闻
+	 * @param partid
+	 * @return
+	 */
+	@RequestMapping("/selectnews")
+	@ResponseBody
+	public List selectNews(String partid){
+		List list=service.selectNews(partid);
+		return list;
+	}
+	/**
+	 * 查询栏目
+	 * @return
+	 */
+	@RequestMapping("/part")
+	@ResponseBody
+	public List selectNewsByPart(){
+		List list=service.selectByPart();
+		return list;
+	}
+	/**
+	 * 查询新闻正文
+	 * @param newsid
+	 * @return
+	 */
+	@RequestMapping("/selectAnew")
+	@ResponseBody
+	public HashMap selectNewsByPart(String newsid){
+		HashMap map=service.selectAnew(newsid);
+		return map;
+	}
+	/**
+	 * 查询分栏目中的头条
+	 * @param partid
+	 * @return
+	 */
+	@RequestMapping("/partHeadline")
+	@ResponseBody
+	public HashMap selectPartHeadline(String partid){
+		HashMap map=service.selectPartHeadline(partid);
+		return map;
+	}
+	/**
+	 * 查询分栏目中的新闻列表
+	 */
+	@RequestMapping("/partnewslist")
+	@ResponseBody
+	public HashMap selectPartnewslist(String partid,pageModel pagemodel){
+		
+		HashMap newslist=service.selectPartnewslist(partid, pagemodel);
+		return newslist;
+	}
+	/**
+	 * 文章评论功能
+	 */
+	@RequestMapping("/comments")
+	@ResponseBody
+	public void insertComments(String newsid,String comments,HttpSession session){
+		HashMap map=(HashMap) session.getAttribute("loginUser");
+		if(map!=null){
+			String nickname=(String) map.get("cms_user_nickname");
+			System.out.println(nickname);
+			service.insertComments(newsid, comments, nickname);
+		}else{
+			String _nickname="游客";
+			service.insertComments(newsid, comments, _nickname);
+		}
+	}
+	/**
+	 * 查询评论功能
+	 */
+	@RequestMapping("/selectcomments")
+	@ResponseBody
+	public HashMap selectComments(String newsid,pageModel pagemodel){
+		HashMap map=service.selectComments(newsid,pagemodel);
+		return map;
+	}
+	/**
+	 * 评论回复功能
+	 */
+	@RequestMapping("/reply")
+	@ResponseBody
+	public HashMap insertReply(){
+		return null;
+	}
+	/**
+	 * 查询回复功能
+	 */
+	@RequestMapping("/selectreply")
+	@ResponseBody
+	public List selectReply(){
+		return null;
+	}
+}

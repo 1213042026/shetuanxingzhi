@@ -1,0 +1,13 @@
+package org.ares.mapper;
+
+import java.util.HashMap;
+import java.util.List;
+
+import org.springframework.stereotype.Repository;
+
+@Repository
+public interface ISelectNewsMapper {
+	public List select(String partid);
+	public List selectByPart();
+	public HashMap selectAnew(String newsid);
+}

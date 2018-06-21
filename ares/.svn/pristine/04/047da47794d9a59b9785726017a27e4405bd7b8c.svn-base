@@ -1,0 +1,96 @@
+<#import  "/news/inc/partheadline.ftl" as headline>
+<#import  "/news/inc/jxnews.ftl" as jxnew>
+<#import  "/news/inc/partnewslist.ftl" as partlistnew>
+<#include   "/news/inc/top.ftl" />
+
+<body>
+	<div class="wrapper sticky_footer">
+    	
+        <#include   "/news/inc/header.ftl" />
+        <!-- CONTENT BEGIN -->
+        <div id="content" class="right_sidebar">
+        	<div class="inner">
+            	<div class="general_content">
+                	<div class="main_content">
+                        <@headline.partHeadline />
+                        
+                        
+                        <@partlistnew.partnewslist />
+                    </div>
+                    	
+ 				<!-- 侧栏     -->
+                <div class="sidebar">
+                    
+                      
+                    
+                    <#include "/news/inc/calendar.ftl"/>
+                    <@jxnew.jxnews   partid="15" divid="jxnews"  />   
+                      
+ 
+     				 <div class="block_popular_stuff">
+                        	<h4>热门视频</h4>
+                            
+                            <div class="content">
+                            	<a  class="view_all">更多视频>></a>
+                            	<div class="media"><a  class="general_pic_hover play no_fx" data-rel="prettyPhoto" title="Popular Video"><img src="/ares/static_news/images/pic_pop_video2.jpg" alt="" /></a></div>
+                                <p><a >三分钟教你学会游泳</a> <img src="/ares/static_news/images/icon_video.gif" alt="" /></p>
+                                <p class="date">13小时前</p>
+                            </div>
+                            
+                            <div class="info">
+                            	<ul>
+                                	<li class="comments"><a >115</a></li>
+                                    <li class="views"><a >22048</a></li>
+                                </ul>
+                            </div>
+                            
+                            <div class="clearboth"></div>
+                            
+                            <div class="line_2"></div>
+                        </div>
+                        
+                        <div class="separator" style="height:31px;"></div>
+                        
+                        
+                        
+                        <div class="block_popular_stuff">
+                        	<h4>热门图片</h4>
+                            
+                            <div class="content">
+                            	<a  class="view_all">更多图片>></a>
+                            	<div class="media"><a href="/ares/static_news/images/pic_pop_photo2.jpg" class="general_pic_hover zoom no_fx" data-rel="prettyPhoto" title="爱沙尼亚极光"><img src="/ares/static_news/images/pic_pop_photo2.jpg" alt="" /></a></div>
+                                <p><a >地球上那些五彩斑斓的色彩天堂</a> <img src="/ares/static_news/images/icon_photo.gif" alt="" /></p>
+                                <p class="date"> 2016-10-01</p>
+                          		<p class="date">这组惊艳的图片向我们展示了地球上五彩斑斓的色彩之美。从中国的紫色梯田到俄罗斯乡间的瑰丽夜空，从爱沙尼亚的蓝绿极光到留尼旺岛火山的赤红烈焰，这些图片是一系列摄影师在过去5年中拍摄的。</p>
+                            </div>
+                            
+                            <div class="info">
+                            	<ul>
+                                	<li class="comments"><a >10247</a></li>
+                                    <li class="views"><a >189</a></li>
+                                </ul>
+                            </div>
+                            
+                            <div class="clearboth"></div>
+                            
+                            <div class="line_2"></div>
+                        </div>
+                        
+                      	<div class="separator" style="height:31px;"></div>
+                        
+                        
+                        
+                    </div>
+                    
+                	<div class="clearboth"></div>
+                </div>
+            </div>
+        </div>
+    	<!-- CONTENT END -->
+        
+         <#include   "/news/inc/footer.ftl" />
+    </div>
+    
+</body>
+
+</html>

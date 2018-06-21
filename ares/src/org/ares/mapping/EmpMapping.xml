@@ -1,0 +1,8 @@
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.ares.mapper.IEmpMapper">
+	<select id="selectPart" resultType="org.ares.entity.Menu" >
+		select cms_part_name as title, id  from   cms_part where  cms_part_fatherid=#{0}  order by id
+	</select>
+</mapper>

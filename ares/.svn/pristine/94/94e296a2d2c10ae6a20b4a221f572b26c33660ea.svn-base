@@ -1,0 +1,191 @@
+<!--
+Author: W3layouts
+Author URL: http://w3layouts.com
+License: Creative Commons Attribution 3.0 Unported
+License URL: http://creativecommons.org/licenses/by/3.0/
+-->
+<!DOCTYPE HTML>
+<html>
+<head>
+<title>Modern an Admin Panel Category Flat Bootstarp Resposive Website Template | Register :: w3layouts</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="/ares/static_login/css/valid.css" rel="stylesheet" type="text/css">
+
+<script type="text/javascript" src="/ares/static_login/js/jquery-3.1.0.min.js"></script>
+<script type="text/javascript" src="/ares/static_login/Validform_v5.3.2_min.js"></script>
+
+ <!-- Bootstrap Core CSS -->
+<link href="/ares/static_login/css/bootstrap.min.css" rel='stylesheet' type='text/css' />
+<!-- Custom CSS -->
+<link href="/ares/static_login/css/style1.css" rel='stylesheet' type='text/css' />
+<link href="/ares/static_login/css/font-awesome.css" rel="stylesheet"> 
+<!-- jQuery -->
+<script src="/ares/static_login/js/jquery.min.js"></script>
+<!---//webfonts--->  
+<!-- Bootstrap Core JavaScript -->
+<script src="/ares/static_login/js/bootstrap.min.js"></script>
+</head>
+<body id="login">
+  <div class="login-logo">
+    <a href="#"><img src="/ares/static_login/img/logo_register.png" alt=""/></a>
+  </div>
+  <h2 class="form-heading">注册用户</h2>
+  
+  <form id="form_yanzheng"  class="form-signin app-cam" action="/ares/register/insert"  method="post" onsubmit="return check()" name="form_register">
+     <input type="hidden" id="flag"  value=null />
+      <p>请填写您的个人信息</p>
+      		<input type="text" id="nickname" class="form-control1" placeholder="昵称" name="nickname" >
+      		<div class="error_form" id="tip1" style="position:absolute;left:850px;top:305px;width:300px;height:45px"></div>
+      		
+     		<input type="text" id="tel" class="form-control1" placeholder="电话" name="tel">
+      		<div class="error_form" id="tip2" style="position:absolute;left:850px;top:370px;width:300px;height:45px"></div>
+      		
+      		<input type="text" id="qq" class="form-control1" placeholder="QQ" name="qq">
+    		<div class="error_form" id="tip3" style="position:absolute;left:850px;top:432px;width:300px;height:45px"></div>
+    		
+    		<input type="text" id="email" class="form-control1" placeholder="邮箱" name="email" />
+    		<div class="error_form" id="tip4" style="position:absolute;left:850px;top:497px;width:300px;height:45px"></div>
+    		<input type="radio" value="男" name="sex"/ >男
+			<input type="radio" value="女" checked="checked"  name="sex"/>女
+	  <p>请填写您的登录信息</p>
+		      <input type="text" id="username" class="form-control1" placeholder="用户名" name="username">
+		      <div class="error_form" id="tip5" style="position:absolute;left:850px;top:630px;width:300px;height:45px"></div>
+		      
+		      <input type="password" id="password1" class="form-control1" placeholder="密码" name="password">
+		      <div class="error_form" id="tip6" style="position:absolute;left:850px;top:694px;width:300px;height:45px"></div>
+		      
+		      <input type="password" id="password2" class="form-control1" placeholder="重复密码" >
+			  <div class="error_form" id="tip7" style="position:absolute;left:850px;top:758px;width:300px;height:45px"></div>
+		<label class="checkbox-custom check-success">
+        
+      </label>
+      <input class="btn btn-lg btn-success1 btn-block" type="submit" value="注册" "></button>
+      <div class="registration">
+      		   已经注册过
+          <a class="" href="login.html">
+       		      登录
+          </a>
+      </div>
+  </form>
+  
+  
+   <div class="copy_layout login register">
+      <p>Copyright © 2015 Modern. All Rights Reserved</p>
+   </div>
+   
+   
+   
+<script>
+	
+	
+	
+	
+	$("#nickname").blur(function(){
+	var a=$("#nickname").val();
+	var zz_nn=/^([\u4e00-\u9fa5_a-zA-Z0-9_]){3,7}$/;
+	if(zz_nn.test(a)){
+		$("#tip1").text("");
+		$("#flag").val(0);
+	}else{
+		$("#tip1").text("昵称必须在3——7位");
+		$("#flag").val(1);
+	}
+	
+	});
+	
+	$("#tel").blur(function(){
+	var b=$("#tel").val();
+	var zz_tel=/^[1][3-8]+\d{9}$/;
+	if(zz_tel.test(b)){
+		$("#tip2").text("");
+		$("#flag").val(0)
+	}else{
+		$("#tip2").text("请输入正确的手机号格式");
+		$("#flag").val(1);
+	}
+	
+	});
+
+	$("#qq").blur(function(){
+	var c=$("#qq").val();
+	var zz_qq=/^[0-9]{6,10}$/;
+	if(zz_qq.test(c)){
+		$("#tip3").text("");
+		$("#flag").val(0)
+	}else{
+		$("#tip3").text("请输入正确的QQ号");
+		$("#flag").val(1);
+	}
+	
+	});
+
+	$("#email").blur(function(){
+	var d=$("#email").val();
+	var zz_email=/^([a-zA-Z0-9_\-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([a-zA-Z0-9\-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})$/;
+	if(zz_email.test(d)){
+		$("#tip4").text("");
+		$("#flag").val(0)
+	}else{
+		$("#tip4").text("请输入正确邮箱格式");
+		$("#flag").val(1);
+	}
+	
+	});
+
+	$("#username").blur(function(){
+	var e=$("#username").val();
+	var zz_un=/^[A-Za-z0-9]{4,10}$/;
+	(zz_un.test(e)){
+		$("#tip5").text("");
+		$("#flag").val(0)
+	}else{
+		$("#tip5").text("用户名由4——10位的英文、数字组成");
+		$("#flag").val(1);
+	}
+	
+	});	
+
+	$("#password1").blur(function(){
+	var f=$("#password1").val();
+	var zz_pw1=/^[A-Za-z0-9]{6,12}$/;
+	if(zz_pw1.test(f)){
+		$("#tip6").text("");
+		$("#flag").val(0)
+	}else{
+		$("#tip6").text("密码由6——12为英文、数字组成");
+		$("#flag").val(1);
+	}
+	
+	});	
+	
+	$("#password2").blur(function(){
+		if($("#password1").val()==$(this).val()){
+			$("#tip7").text("");
+			$("#flag").val(0)
+		}else{
+			$("#tip7").text("密码不一致");
+			$("#flag").val(1);	
+		}
+	});
+	
+	
+	
+	
+	
+	function check(){
+	if($("#flag").val()==0){
+		return true;
+	}else{
+		alert("请填写所有信息");
+		return false;
+		
+	}
+	
+	}
+	
+	
+	
+	
+</script>
+</body>
+</html>

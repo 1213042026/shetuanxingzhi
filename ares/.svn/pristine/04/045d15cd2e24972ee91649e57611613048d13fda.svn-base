@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.ares.mapper.IRegisterMapper">
+	 <insert id="insertRegister"  parameterType="org.ares.entity.Register">
+		insert into cms_user
+		(cms_user_uname,cms_user_pwd,cms_user_email,cms_user_nickname,cms_user_sex,cms_user_tel,cms_user_qq,cms_user_role)
+		values
+		(#{cms_user_uname},#{cms_user_pwd},#{cms_user_email},#{cms_user_nickname},#{cms_user_sex},#{cms_user_tel},#{cms_user_qq},'普通用户')
+	</insert>	
+	<select id="selectRegister" resultType="hashmap">
+		select cms_user_uname 
+		from cms_user
+		where cms_user_uname=#{username}
+	</select>
+
+
+</mapper>

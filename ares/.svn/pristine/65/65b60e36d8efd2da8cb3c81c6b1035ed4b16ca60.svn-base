@@ -1,0 +1,91 @@
+<#include   "/news/inc/top.ftl" />
+
+<body>
+	<div class="wrapper sticky_footer">
+    	<#include   "/news/inc/header.ftl" />
+        
+        <!-- CONTENT BEGIN -->
+        <div id="content" class="">
+        	<div class="inner">
+            	<div class="general_content">
+                	<div class="main_content">
+                    	<div class="block_breadcrumbs">
+                        	<div class="text"><p>您所在的位置:</p></div>
+                            
+                            <ul>
+                            	<li><a href="index.html">首页</a></li>
+                                <li>个人信息</li>
+                            </ul>
+                        </div>
+                        <div class="separator" style="height:28px;"></div>
+                        
+                        <p class="general_title"><span> 用 户 个 人 信 息 </span></p>
+                        <div class="separator" style="height:39px;"></div>
+                        
+                        <div class="block_registration">
+                        	<form action="#" class="w_validation" />
+                            	<div class="col_1">
+                                	<div class="label"><p>用户名：</p></div>
+                                    <div class="field"><p class="req">wf</p></div>
+                                    <div class="clearboth"></div>
+                                    <div class="separator" style="height:25px;"></div>
+                                    
+                                    <div class="label"><p>昵称：</p></div>
+                                    <div class="field"><p class="req">西北法k</p></div>
+                                    <div class="clearboth"></div>
+                                    <div class="separator" style="height:25px;"></div>
+                                    
+                                    <div class="label"><p>性别：</p></div>
+                                    <div class="field"><p class="req">直男</p></div>
+                                    <div class="clearboth"></div>
+                                    <div class="separator" style="height:25px;"></div>
+                                    
+                                    <div class="label"><p>邮箱：</p></div>
+                                    <div class="field"><p class="req">29649043*@qq.com</p></div>
+                                    <div class="clearboth"></div>
+                               		<div class="separator" style="height:25px;"></div>
+                               
+                                	<div class="label"><p>QQ:</p></div>
+                                    <div class="field"><p class="req">29649043*</p></div>
+                                    <div class="clearboth"></div>
+                                    <div class="separator" style="height:25px;"></div>
+                                    
+                                    <div class="label"><p>电话：</p></div>
+                                    <div class="field"><p class="req">1304054735*</p></div>
+                                    <div class="clearboth"></div>
+                                    <div class="separator" style="height:25px;"></div>
+                                    
+                                	<div class="label"><p>权限：</p></div>
+                                    <div class="field"><p class="req">管理猿</p></div>
+                                    <div class="clearboth"></div>
+                                    <div class="separator" style="height:25px;"></div>
+                                    
+                                    <div class="label"><p>最后登录时间：</p></div>
+                                    <div class="field"><p class="req">2016/10/10 11:24</p></div>
+                                    <div class="clearboth"></div>
+                                    <div class="separator" style="height:25px;"></div>
+                            	</div>
+                                
+                                <div class="clearboth"></div>
+                                <div class="separator" style="height:25px;"></div>
+                                <p class="info_text"><a href="user_imf_edit.html"><input type="button"  class="general_button" value="修改个人信息" /></a></p>
+                                <p class="info_text"><input id="general_button_back" type="button" onclick="javascript:history.back(-1);" class="general_button" value="返 回" /></p>
+                            </form>
+                        </div>
+                        
+                        <div class="line_3" style="margin:42px 0px 0px;"></div>
+                        
+                    </div>
+                    
+                	<div class="clearboth"></div>
+                </div>
+            </div>
+    	<!-- CONTENT END -->
+        
+        <#include   "/news/inc/footer.ftl" />
+    </div>
+    
+    
+</body>
+
+</html>

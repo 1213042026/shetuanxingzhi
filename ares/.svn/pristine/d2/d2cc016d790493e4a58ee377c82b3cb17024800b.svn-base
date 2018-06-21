@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8"/>
+<title>前台登录</title>
+<meta name="author" content="DeathGhost" />
+<link rel="stylesheet" type="text/css" href="/ares/static_login/css/style2.css" />
+<style>
+body{height:100%;background:#16a085;overflow:hidden;}
+canvas{z-index:-1;position:absolute;}
+</style>
+<script src="/ares/static_login/js/jquery.js"></script>
+<script src="/ares/static_login/js/verificationNumbers.js"></script>
+<script src="/ares/static_login/js/Particleground.js"></script>
+<script>
+$(document).ready(function() {
+  //粒子背景特效
+  $('body').particleground({
+    dotColor: '#5cbdaa',
+    lineColor: '#5cbdaa'
+  });
+  //验证码
+  createCode();
+  //测试提交，对接程序删除即可
+  
+	$(".zhuce_btn").click(function(){
+		location.href="/ares/ftl/register.ftl";
+	});
+});
+</script>
+</head>
+<body>
+	<div class="head_login_h" style="float:left;">
+		<span class="head_login_wel">点击</span><a href="/ares/view/loginh.ftl" class="login_h" >这里</a>
+		<span class="head_login_hou">到后台登录界面</span>
+		<span style="float:right;margin-top:17px;margin-right:30px;">
+			<a href="/ares/view/news/aresindex.ftl" >返回首页</a>
+		</span>
+	</div>
+	
+<dl class="admin_login">
+ <dt>
+  <strong>阿 瑞 斯 新 闻 网</strong>
+  <em>Ares news</em>
+ </dt>
+ <form action="/ares/login/selectLoginnews" method="post">
+ <dd class="user_icon">
+  <input type="text" placeholder="账号" class="login_txtbx" name="username"/>
+ </dd>
+ <dd class="pwd_icon">
+  <input type="password" placeholder="密码" class="login_txtbx" name="password"/>
+ </dd>
+ <dd class="val_icon">
+  <div class="checkcode">
+ 	<input type="text" name="checkcode" id="J_codetext"  style="color:white;width:50%;background:#5cbdaa";/>
+    <img src="/ares/checkcode.jsp" style="width:80px;height:40px" onclick="this.src='/ares/checkcode.jsp?d='+Math.random();"/>
+ 
+  </div>
+    <p style="color:red">${loginError}</p>
+  
+ </dd>
+ <dd>
+  <input type="submit" value="立即登陆" class="submit_btn"/>
+  <input type="button" value="注册用户" class="zhuce_btn" onclick="location.href='/ares/view/news/register'"/>
+
+ </dd>
+ </form>
+ <dd>
+  <p>版权所有 2016 1302@石三藏</p>
+  
+ </dd>
+</dl>
+</body>
+</html>

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.ares.mapper.IMessageMapper">
+	 <select id="selectrows" resultType="hashmap">
+		select count(*) as messagerows
+		from cms_mes 
+		where cms_mes_status='0'
+	</select>	
+	
+	<select id="selectall" resultType="hashmap">
+		select 
+		cm.id,
+		cm.cms_mes_content,
+		cm.cms_mes_time,
+		cu.cms_user_uname 
+		from cms_mes cm 
+		left join cms_user cu
+		on cm.userid=cu.id
+		limit #{0},#{1}
+	</select>
+	<select id="selectallrows" resultType="hashmap">
+		select count(*) as allrows
+		from cms_mes 
+	</select>
+	
+	
+	<delete id="delete"  >
+		delete from cms_mes
+		where id=#{id}
+	</delete>
+	
+</mapper>
+

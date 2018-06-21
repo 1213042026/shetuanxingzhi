@@ -1,0 +1,10 @@
+package org.ares.service;
+
+import java.util.HashMap;
+import java.util.List;
+
+public interface ISelectNewsService {
+	public List selectNews(String partid);
+	public List selectByPart();
+	public HashMap selectAnew(String newsid);
+}

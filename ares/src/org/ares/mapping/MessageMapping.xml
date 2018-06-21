@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.ares.mapper.IMessageMapper">
+	 <!-- 查询未读留言条数 -->
+	 <select id="selectrows" resultType="hashmap">
+		select count(*) as messagerows
+		from cms_mes 
+		where cms_mes_status='0'
+	</select>	
+	<!-- 查询未读留言 -->
+	<select id="selectnoread" resultType="hashmap">
+		select 
+		cm.id,
+		cm.cms_mes_content,
+		cm.cms_mes_time,
+		cu.cms_user_uname 
+		from cms_mes cm 
+		left join cms_user cu
+		on cm.userid=cu.id
+		where cms_mes_status='0'
+		limit #{0},#{1}
+	</select>
+	
+	<!-- 更新未读留言为已读状态 -->
+	<update id="upnoreadrows">
+	update 
+	cms_mes set cms_mes_status='1'
+	where 
+	cms_mes_status='0'
+	</update>
+	
+	<!-- 查询全部留言条数 -->
+	<select id="selectallrows" resultType="hashmap">
+		select count(*) as allrows
+		from cms_mes 
+	</select>
+	
+	<!-- 查询全部留言 -->
+	<select id="selectall" resultType="hashmap">
+		select 
+		cm.id,
+		cm.cms_mes_content,
+		cm.cms_mes_time,
+		cu.cms_user_uname 
+		from cms_mes cm 
+		left join cms_user cu
+		on cm.userid=cu.id
+		limit #{0},#{1}
+	</select>
+	
+	
+	<delete id="delete"  >
+		delete from cms_mes
+		where id=#{id}
+	</delete>
+	<insert id="insertmessage">
+		insert into cms_mes (cms_mes_content,cms_mes_time,cms_mes_status,userid) values(#{message},now(),'0',#{id})
+	</insert>
+</mapper>
+

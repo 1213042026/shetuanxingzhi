@@ -1,0 +1,50 @@
+package org.ares.entity;
+
+public class Txt {
+	
+
+	String cms_news_name;
+	String cms_news_content;
+	String cms_news_type;
+	String cms_part_name;
+	String cms_news_imgurl;
+	int paritid;
+	
+	public int getParitid() {
+		return paritid;
+	}
+	public void setParitid(int paritid) {
+		this.paritid = paritid;
+	}
+	public String getCms_news_name() {
+		return cms_news_name;
+	}
+	public void setCms_news_name(String cms_news_name) {
+		this.cms_news_name = cms_news_name;
+	}
+	public String getCms_news_content() {
+		return cms_news_content;
+	}
+	public void setCms_news_content(String cms_news_content) {
+		this.cms_news_content = cms_news_content;
+	}
+	public String getCms_news_type() {
+		return cms_news_type;
+	}
+	public void setCms_news_type(String cms_news_type) {
+		this.cms_news_type = cms_news_type;
+	}
+	public String getCms_part_name() {
+		return cms_part_name;
+	}
+	public void setCms_part_name(String cms_part_name) {
+		this.cms_part_name = cms_part_name;
+	}
+	public String getCms_news_imgurl() {
+		return cms_news_imgurl;
+	}
+	public void setCms_news_imgurl(String cms_news_imgurl) {
+		this.cms_news_imgurl = cms_news_imgurl;
+	}
+
+}

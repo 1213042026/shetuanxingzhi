@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd" id="WebApp_ID" version="3.0">
+  <display-name>ares</display-name>
+  
+  
+  
+  <filter>  
+        <filter-name>characterEncodingFilter</filter-name>  
+        <filter-class>org.springframework.web.filter.CharacterEncodingFilter</filter-class>  
+        <init-param>  
+            <param-name>encoding</param-name>  
+            <param-value>UTF-8</param-value>  
+        </init-param>  
+        <init-param>  
+            <param-name>forceEncoding</param-name>  
+            <param-value>true</param-value>  
+        </init-param>  
+    </filter>  
+    
+    <filter-mapping>  
+        <filter-name>characterEncodingFilter</filter-name>  
+        <url-pattern>/*</url-pattern>  
+    </filter-mapping>
+  
+
+  
+  
+  
+ 	<!--配置一个核心的控制器 -->
+
+	<servlet>
+		<servlet-name>spring</servlet-name>
+		<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+		<!-- 配置 DispatcherServlet的一个初始化参数：配置springMVC配置文件的位置和名称 -->
+		<init-param>
+			<param-name>contextConfigLocation</param-name>
+			<param-value>classpath:springmvc.xml</param-value>
+		</init-param>
+		<load-on-startup>1</load-on-startup>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>spring</servlet-name>
+		<url-pattern>/</url-pattern>
+	</servlet-mapping>
+
+  
+   	
+   	<!-- 指定主IOC配置文件路径 -->
+  	<context-param>
+  		<param-name>contextConfigLocation</param-name>
+  		<param-value>classpath:applicationContext.xml</param-value>
+  	</context-param>
+  	<!-- 监听器 监听容器启动  初始化Spring ioc配置文件 -->
+  	<listener>
+  		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+  	</listener>
+  
+  
+<!--     
+   <servlet>
+        <servlet-name>default</servlet-name>
+        <servlet-class>org.apache.catalina.servlets.DefaultServlet</servlet-class>
+      	<load-on-startup>1</load-on-startup>
+   	 </servlet>
+  	<servlet-mapping>
+  		<servlet-name>default</servlet-name>
+  		<url-pattern>/static_hou/*</url-pattern>
+  	</servlet-mapping> -->
+ 	
+  
+  
+	 <error-page>  
+	    <error-code>500</error-code>  
+	    <location>/static_hou/error/500.ftl</location>  
+	</error-page>  
+	
+	<error-page>  
+	    <error-code>404</error-code>  
+	    <location>/static_hou/error/404.ftl</location>  
+	</error-page>
+  
+  
+  <welcome-file-list>
+    <welcome-file>index.html</welcome-file>
+    <welcome-file>index.htm</welcome-file>
+    <welcome-file>index.jsp</welcome-file>
+    <welcome-file>default.html</welcome-file>
+    <welcome-file>default.htm</welcome-file>
+    <welcome-file>default.jsp</welcome-file>
+  </welcome-file-list>
+</web-app>
